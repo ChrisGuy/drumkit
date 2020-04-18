@@ -10,10 +10,15 @@ function handleClick(){
   
   whichSound(this.innerHTML);
   
+  btnAnimate(this.innerHTML);
+  
 }
 
 document.addEventListener("keydown",function(event){
+  
   whichSound(event.key);
+  
+  btnAnimate(event.key);
 });
 
 
@@ -52,4 +57,16 @@ function whichSound(key){
     
     default:
   }
+}
+
+function btnAnimate(currentKey){
+  
+  var activeBtn = document.querySelector("." + currentKey);
+  
+  activeBtn.classList.add("pressed");
+  
+  setTimeout(function(){
+    activeBtn.classList.remove("pressed");
+  }, 100);
+  
 }
